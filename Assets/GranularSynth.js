@@ -22,6 +22,12 @@ function Awake() {
 	clip.GetData(samples, 0);
 }
 
+function Update() {
+	var cursor : PositionView = FindObjectOfType(PositionView);
+	cursor.position = 1.0 / sampleLength * position;
+	cursor.width = 1.0 / sampleLength * interval * playbackSpeed;
+}
+
 function OnGUI() {
 	GUILayout.BeginArea(Rect(16, 16, Screen.width - 32, Screen.height - 32));
 	GUILayout.FlexibleSpace();
